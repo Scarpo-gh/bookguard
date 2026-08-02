@@ -1,43 +1,43 @@
-# Base Builder Operasyon Akışı
+# Base Builder Operations
 
-Bu repo, Arc hackathon reposundan ayrıdır. BookGuard ile amaç gerçek bir Base builder izi bırakmak ve Guild doğrulamalarını çalışan ürün kanıtıyla tamamlamaktır.
+This repository is independent from the Arc hackathon repository. BookGuard is intended to create a credible Base builder footprint through working product evidence and verifiable Guild activity.
 
-## Şu an tamamlandı
+## Completed
 
-- [x] Ayrı local Git repository: `~/bookguard`
-- [x] `ReceiptAnchorV1` contractı
-- [x] Test-first contract testleri
-- [x] Foundry doğrulama komutu: `scripts/check.sh`
-- [x] Foundry v1.7.1 checksum doğrulanarak local kuruldu
+- [x] Separate local Git repository: `~/bookguard`
+- [x] `ReceiptAnchorV1` contract
+- [x] Test-first contract coverage
+- [x] Foundry verification command: `scripts/check.sh`
+- [x] Foundry v1.7.1 installed locally with a verified release checksum
 
-## Onur: hesap / imza gereken adımlar
+## Account and signature steps — repository owner
 
-Bu adımlar parola, OAuth veya wallet imzası içerdiği için kullanıcı tarafından yapılır.
+These steps require a password, OAuth consent, or wallet signature and must be completed by the repository owner.
 
-1. GitHub’da `Scarpo-gh/bookguard` adlı **public** repo oluştur. README ekleme; local repo hazır.
-2. Repo URL’sini paylaş. Şakir `origin` ekleyip ilk local commitleri pushlar.
-3. Guild’de wallet, GitHub ve X hesaplarını bağla; Guild’e katıl.
-4. Bağlanan X hesabından `@BuildOnBase` takip et.
-5. Base Sepolia için faucet ETH al; private key/seed phrase paylaşma.
+1. Create the public GitHub repository `Scarpo-gh/bookguard` without initializing it with a README.
+2. Add the repository-specific deploy key with write access.
+3. Connect wallet, GitHub, and X accounts in Guild; then join the Guild.
+4. Follow `@BuildOnBase` from the connected X account.
+5. Obtain Base Sepolia faucet ETH. Never share a private key or seed phrase.
 
-## Şakir: repo URL’sinden sonra
+## Maintainer steps after repository access
 
-1. Local `main` branch’i yeni public remote’a pushlar.
-2. Public GitHub commit ve repo görünürlüğünü doğrular.
-3. Base Sepolia deploy command’ini önce broadcast olmadan dry-run çalıştırır.
-4. Dry-run çıktısını paylaşır; yalnız Onur onayından sonra deploy broadcast edilir.
-5. Tx hash ve contract address ile Sepolia Basescan doğrulaması yapar.
-6. Guild Verify ekranında testnet deployunun sayılıp sayılmadığını kontrol eder.
+1. Push the tested local `main` branch to the public remote.
+2. Verify public commit visibility and repository metadata.
+3. Run the Base Sepolia deployment command as a dry run before any broadcast.
+4. Share dry-run output. A wallet-owner approval is required before broadcasting a deployment.
+5. Verify the transaction hash and contract address on Base Sepolia Basescan.
+6. Use Guild Verify to check whether a testnet deployment is counted.
 
-## Base Dashboard / dağıtım
+## Base Dashboard and distribution
 
-- İlk web arayüzü yayımlanmadan Base Dashboard app metadata tamamlanmaz.
-- Web app: standart mobil web app, wagmi/viem/Base Account.
-- Farcaster manifesti Base App için gerekli değildir.
-- Builder Code, uygulamanın gerçek transaction üretmeye başlamasından sonra eklenir.
-- Office Hours, canlı demo ve tek teknik sorudan sonra kullanılır.
+- Base Dashboard metadata follows after the first web interface is live.
+- The web app will be a standard mobile web app using wagmi, viem, and Base Account.
+- A Farcaster manifest is not required for Base App distribution.
+- A Builder Code is added only once the application produces meaningful transactions.
+- Office Hours follow a live demo and one focused technical question.
 
-## Güvenlik sınırı
+## Security boundary
 
-- Mainnet, user funds, custody, trading, order routing, token çıkarımı veya reward farming contract’ı yoktur.
-- x402 ve Base Verify Onchain, ancak gerçek ücretli API veya anti-Sybil claim ihtiyacı ortaya çıkarsa sonraki faza girer.
+- No mainnet activity, user funds, custody, trading, order routing, token issuance, or reward-farming contract is in scope.
+- x402 and Base Verify Onchain are deferred until a real paid API or anti-Sybil claim need exists.
