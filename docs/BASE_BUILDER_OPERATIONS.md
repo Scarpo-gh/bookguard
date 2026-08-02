@@ -27,7 +27,7 @@ These steps require a password, OAuth consent, or wallet signature and must be c
 3. Run the Base Sepolia deployment command as a dry run before any broadcast.
 4. Share dry-run output. A wallet-owner approval is required before broadcasting a deployment.
 5. Verify the transaction hash and contract address on Base Sepolia Basescan.
-6. Use Guild Verify to check whether a testnet deployment is counted.
+6. The Base Guild `Contract Deployed` requirements are configured for Base Mainnet, not Base Sepolia. Deploy a meaningful contract on Base Mainnet, then refresh Guild Verify after indexing.
 
 ## Base Dashboard and distribution
 
