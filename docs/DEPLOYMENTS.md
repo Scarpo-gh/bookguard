@@ -1,5 +1,20 @@
 # Deployments
 
+## Base Mainnet — `ReceiptAnchorV1`
+
+| Field | Value |
+| --- | --- |
+| Network | Base Mainnet |
+| Chain ID | `8453` |
+| Contract | [`0x9a8fCf271F97075486673eA3eD48c4fda33374Ce`](https://basescan.org/address/0x9a8fCf271F97075486673eA3eD48c4fda33374Ce) |
+| Deployment transaction | [`0x6e22069ac37b4a7a6f1ac61c53c3617345d702f9c772b5f7087a847d0496fa9c`](https://basescan.org/tx/0x6e22069ac37b4a7a6f1ac61c53c3617345d702f9c772b5f7087a847d0496fa9c) |
+| Block | `49452658` |
+| Gas used | `246,000` |
+| Value sent | `0 ETH` |
+| Status | Success |
+
+The contract was deployed directly by the project wallet through a wallet-controlled Remix Browser Extension session. The executable runtime prefix matches the local `ReceiptAnchorV1` build; the final compiler metadata bytes differ because Remix and Foundry compile in different source contexts.
+
 ## Base Sepolia — `ReceiptAnchorV1`
 
 | Field | Value |
