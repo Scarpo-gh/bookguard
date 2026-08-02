@@ -19,3 +19,5 @@ Deploying or broadcasting requires a separate explicit wallet approval.
 Builder/Guild and Base Sepolia operations: [`docs/BASE_BUILDER_OPERATIONS.md`](docs/BASE_BUILDER_OPERATIONS.md).
 
 Wallet-safe Remix deployment guide: [`docs/REMIX_BASE_SEPOLIA_DEPLOY.md`](docs/REMIX_BASE_SEPOLIA_DEPLOY.md).
+
+Verified Base Sepolia deployment: [`docs/DEPLOYMENTS.md`](docs/DEPLOYMENTS.md).
