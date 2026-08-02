@@ -15,3 +15,5 @@ PATH="$HOME/.local/bin:$PATH" scripts/check.sh
 ```
 
 Deploying or broadcasting requires a separate explicit wallet approval.
+
+Builder/Guild ve Base Sepolia operasyon sırası: [`docs/BASE_BUILDER_OPERATIONS.md`](docs/BASE_BUILDER_OPERATIONS.md).
