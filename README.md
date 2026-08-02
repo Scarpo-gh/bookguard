@@ -1,6 +1,6 @@
-# OutcomeRail Base
+# BookGuard
 
-Base-native, read-only market-quality and receipt-provenance infrastructure.
+Base-native, read-only orderbook quality and receipt-provenance infrastructure.
 
 > Prototype boundary: no trading, custody, order routing, user funds, investment advice, or profitability claims.
 

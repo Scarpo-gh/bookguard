@@ -1,10 +1,10 @@
 # Base Builder Operasyon Akışı
 
-Bu repo, Arc hackathon reposundan ayrıdır. Amaç gerçek bir Base builder izi bırakmak ve Guild doğrulamalarını çalışan ürün kanıtıyla tamamlamaktır.
+Bu repo, Arc hackathon reposundan ayrıdır. BookGuard ile amaç gerçek bir Base builder izi bırakmak ve Guild doğrulamalarını çalışan ürün kanıtıyla tamamlamaktır.
 
 ## Şu an tamamlandı
 
-- [x] Ayrı local Git repository: `~/outcomerail-base`
+- [x] Ayrı local Git repository: `~/bookguard`
 - [x] `ReceiptAnchorV1` contractı
 - [x] Test-first contract testleri
 - [x] Foundry doğrulama komutu: `scripts/check.sh`
@@ -14,7 +14,7 @@ Bu repo, Arc hackathon reposundan ayrıdır. Amaç gerçek bir Base builder izi 
 
 Bu adımlar parola, OAuth veya wallet imzası içerdiği için kullanıcı tarafından yapılır.
 
-1. GitHub’da `Scarpo-gh/outcomerail-base` adlı **public** repo oluştur. README ekleme; local repo hazır.
+1. GitHub’da `Scarpo-gh/bookguard` adlı **public** repo oluştur. README ekleme; local repo hazır.
 2. Repo URL’sini paylaş. Şakir `origin` ekleyip ilk local commitleri pushlar.
 3. Guild’de wallet, GitHub ve X hesaplarını bağla; Guild’e katıl.
 4. Bağlanan X hesabından `@BuildOnBase` takip et.

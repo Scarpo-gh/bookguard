@@ -2,7 +2,7 @@
 pragma solidity ^0.8.30;
 
 /// @title ReceiptAnchorV1
-/// @notice Anchors canonical, off-chain OutcomeRail receipt evidence on Base.
+/// @notice Anchors canonical, off-chain BookGuard receipt evidence on Base.
 /// @dev It does not validate upstream market data or make trading decisions.
 contract ReceiptAnchorV1 {
     struct Anchor {
