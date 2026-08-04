@@ -95,6 +95,16 @@
             <span>Keccak-256 receipt hash</span>
             <code id="market-receipt-hash"></code>
           </div>
+          <div class="preflight-actions">
+            <button id="anchor-preflight" type="button" disabled>Run Base preflight</button>
+            <p id="anchor-preflight-message" class="message">Checks duplicate state, simulation, and gas without a wallet.</p>
+          </div>
+          <dl id="anchor-preflight-result" class="anchor-data" hidden>
+            <div><dt>Policy hash</dt><dd id="preflight-policy"></dd></div>
+            <div><dt>Market hash</dt><dd id="preflight-market"></dd></div>
+            <div><dt>Base status</dt><dd id="preflight-status"></dd></div>
+            <div><dt>Estimated gas</dt><dd id="preflight-gas"></dd></div>
+          </dl>
           <details>
             <summary>Canonical receipt JSON</summary>
             <pre id="market-canonical"></pre>

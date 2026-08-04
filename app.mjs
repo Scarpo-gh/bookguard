@@ -1,4 +1,4 @@
-import { lookupAnchor, receiptHashFromSearch } from "./receipt-anchor.mjs";
+import { lookupAnchor, preflightAnchor, receiptHashFromSearch } from "./receipt-anchor.mjs";
 import { canonicalJson } from "./canonical-json.mjs";
 import { keccak256Utf8 } from "./keccak256.mjs";
 import { fetchObservation } from "./polymarket-observation.mjs";
@@ -84,6 +84,17 @@ const marketObserved = document.querySelector("#market-observed");
 const marketBooks = document.querySelector("#market-books");
 const marketCanonical = document.querySelector("#market-canonical");
 const marketReceiptHash = document.querySelector("#market-receipt-hash");
+const preflightButton = document.querySelector("#anchor-preflight");
+const preflightMessage = document.querySelector("#anchor-preflight-message");
+const preflightResult = document.querySelector("#anchor-preflight-result");
+const preflightFields = {
+  policyHash: document.querySelector("#preflight-policy"),
+  marketHash: document.querySelector("#preflight-market"),
+  status: document.querySelector("#preflight-status"),
+  gas: document.querySelector("#preflight-gas"),
+};
+const POLYMARKET_POLICY = "bookguard:policy:polymarket-clob-top-of-book/v1";
+let currentReceipt = null;
 
 function setMarketMessage(text, isError = false) {
   marketPreviewMessage.textContent = text;
@@ -109,6 +120,11 @@ function renderMarketObservation(observation) {
   const canonicalReceipt = canonicalJson(observation);
   marketCanonical.textContent = canonicalReceipt;
   marketReceiptHash.textContent = keccak256Utf8(canonicalReceipt);
+  currentReceipt = { observation, receiptHash: marketReceiptHash.textContent };
+  preflightButton.disabled = false;
+  preflightResult.hidden = true;
+  preflightMessage.textContent = "Checks duplicate state, simulation, and gas without a wallet.";
+  preflightMessage.classList.remove("error");
 }
 
 marketPreviewForm.addEventListener("submit", async (event) => {
@@ -123,5 +139,38 @@ marketPreviewForm.addEventListener("submit", async (event) => {
     setMarketMessage(error.message, true);
   } finally {
     marketPreviewButton.disabled = false;
+  }
+});
+
+preflightButton.addEventListener("click", async () => {
+  if (!currentReceipt) return;
+
+  const policyHash = keccak256Utf8(POLYMARKET_POLICY);
+  const marketHash = keccak256Utf8(`polymarket:condition:${currentReceipt.observation.market.conditionId.toLowerCase()}`);
+  const observedAt = Math.floor(Date.parse(currentReceipt.observation.observedAt) / 1000);
+  preflightButton.disabled = true;
+  preflightMessage.textContent = "Reading ReceiptAnchorV1 and simulating anchorReceipt() on Base.";
+  preflightMessage.classList.remove("error");
+
+  try {
+    const result = await preflightAnchor({
+      receiptHash: currentReceipt.receiptHash,
+      policyHash,
+      marketHash,
+      observedAt,
+    });
+    preflightResult.hidden = false;
+    preflightFields.policyHash.textContent = policyHash;
+    preflightFields.marketHash.textContent = marketHash;
+    preflightFields.status.textContent = result.anchor.anchored ? "Already anchored — no write should be sent." : "Not anchored · simulation passed";
+    preflightFields.gas.textContent = result.estimatedGas === null ? "—" : result.estimatedGas.toString();
+    preflightMessage.textContent = result.anchor.anchored
+      ? "This exact receipt is already anchored."
+      : "Preflight passed. This page still cannot sign or broadcast a transaction.";
+  } catch (error) {
+    preflightMessage.textContent = error.message;
+    preflightMessage.classList.add("error");
+  } finally {
+    preflightButton.disabled = false;
   }
 });
