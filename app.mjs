@@ -1,4 +1,4 @@
-import { lookupAnchor } from "./receipt-anchor.mjs";
+import { lookupAnchor, receiptHashFromSearch } from "./receipt-anchor.mjs";
 
 const form = document.querySelector("#lookup-form");
 const input = document.querySelector("#receipt-hash");
@@ -64,3 +64,9 @@ form.addEventListener("submit", async (event) => {
     button.disabled = false;
   }
 });
+
+const receiptHash = receiptHashFromSearch(window.location.search);
+if (receiptHash) {
+  input.value = receiptHash;
+  form.requestSubmit();
+}

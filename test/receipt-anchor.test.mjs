@@ -6,6 +6,7 @@ import {
   encodeGetAnchorCall,
   lookupAnchor,
   normalizeReceiptHash,
+  receiptHashFromSearch,
 } from "../receipt-anchor.mjs";
 
 const RECEIPT_HASH = "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
@@ -23,6 +24,14 @@ test("normalizes a valid bytes32 receipt hash", () => {
 
 test("rejects a receipt hash that is not bytes32", () => {
   assert.throws(() => normalizeReceiptHash("0x1234"), /32-byte hexadecimal hash/);
+});
+
+test("reads a valid receipt hash from a query string", () => {
+  assert.equal(
+    receiptHashFromSearch(`?receipt=${RECEIPT_HASH.toUpperCase()}`),
+    RECEIPT_HASH,
+  );
+  assert.equal(receiptHashFromSearch("?receipt=0x1234"), null);
 });
 
 test("encodes getAnchor calldata", () => {
