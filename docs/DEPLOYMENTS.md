@@ -16,6 +16,10 @@
 
 The contract was deployed directly by the project wallet through a wallet-controlled Remix Browser Extension session. BaseScan independently recompiles the published source as an exact bytecode match using Solidity `0.8.30`, optimizer enabled with `200` runs, and the compiler-default EVM target.
 
+### First anchored receipt
+
+The first canonical receipt was anchored on Base Mainnet in [`0xbb77e331e81b915c20a23205deecafc6d818a92613ab7dc29493f289254ee797`](https://basescan.org/tx/0xbb77e331e81b915c20a23205deecafc6d818a92613ab7dc29493f289254ee797), block `49530988`, with a successful `ReceiptAnchored` event. See [`RECEIPTS.md`](RECEIPTS.md) for the source receipt, canonical hashing inputs, and independent verification command.
+
 ## Base Sepolia — `ReceiptAnchorV1`
 
 | Field | Value |

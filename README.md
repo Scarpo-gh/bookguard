@@ -22,9 +22,13 @@ Wallet-safe Remix deployment guide: [`docs/REMIX_BASE_SEPOLIA_DEPLOY.md`](docs/R
 
 Verified Base Mainnet and Base Sepolia deployments: [`docs/DEPLOYMENTS.md`](docs/DEPLOYMENTS.md).
 
+First canonical Base Mainnet receipt anchor: [`docs/RECEIPTS.md`](docs/RECEIPTS.md).
+
 ## Read-only web lookup
 
 `web/` contains a dependency-free browser interface for reading `getAnchor(bytes32)` from the verified Base Mainnet contract. It never requests a wallet connection and it never sends a transaction.
+
+Live lookup: [scarpo-gh.github.io/bookguard](https://scarpo-gh.github.io/bookguard/). The page includes a link that loads the first anchored deployment receipt.
 
 ```bash
 python3 -m http.server 4173 --directory web

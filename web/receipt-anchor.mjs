@@ -6,11 +6,22 @@ const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 const BYTES32_PATTERN = /^0x[0-9a-fA-F]{64}$/i;
 
 export function normalizeReceiptHash(value) {
-  if (!BYTES32_PATTERN.test(value)) {
-    throw new Error("Enter a 32-byte hexadecimal hash (0x followed by 64 hex characters).");
+  if (typeof value !== "string" || !BYTES32_PATTERN.test(value)) {
+    throw new TypeError("Enter a 32-byte hexadecimal hash: 0x followed by 64 characters.");
   }
 
   return value.toLowerCase();
+}
+
+export function receiptHashFromSearch(search) {
+  const value = new URLSearchParams(search).get("receipt");
+  if (value === null) return null;
+
+  try {
+    return normalizeReceiptHash(value);
+  } catch {
+    return null;
+  }
 }
 
 export function encodeGetAnchorCall(receiptHash) {
