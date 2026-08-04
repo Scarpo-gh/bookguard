@@ -7,4 +7,5 @@ broadcast/
 node_modules/
 .next/
 .vercel/
+.hermes/
 .DS_Store
