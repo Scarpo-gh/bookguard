@@ -50,6 +50,22 @@ For each book, `bestBid` is the maximum returned bid price and `bestAsk` is the 
 
 If CLOB omits `last_trade_price`, store an empty string. Do not substitute a midpoint, Gamma outcome price, or an inferred value.
 
+## Read-only generator
+
+Generate a fresh canonical receipt to stdout with Node 22 or later:
+
+```bash
+node scripts/polymarket-observation-receipt.mjs <market-slug>
+```
+
+For example:
+
+```bash
+node scripts/polymarket-observation-receipt.mjs eth-updown-5m-1785937800
+```
+
+The generator makes three unauthenticated GET requests: one Gamma market lookup and one CLOB order-book lookup per outcome. It rejects missing, inactive, closed, inconsistent, or empty-book markets. It does not write files, connect a wallet, sign, or send a transaction.
+
 ## Anchor procedure
 
 Before a mainnet write:
