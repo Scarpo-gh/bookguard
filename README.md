@@ -28,7 +28,7 @@ Polymarket external-observation schema and unanchored Base dry run: [`docs/POLYM
 
 ## Read-only web lookup
 
-`web/` contains a dependency-free browser interface for reading `getAnchor(bytes32)` from the verified Base Mainnet contract. It never requests a wallet connection and it never sends a transaction.
+`web/` contains a dependency-free browser interface for reading `getAnchor(bytes32)` from the verified Base Mainnet contract and previewing fresh Polymarket Gamma+CLOB observation receipts. It never requests a wallet connection and it never sends a transaction.
 
 Live lookup: [scarpo-gh.github.io/bookguard](https://scarpo-gh.github.io/bookguard/). The page includes a link that loads the first anchored deployment receipt.
 

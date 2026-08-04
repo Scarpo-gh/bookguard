@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { fetchObservation } from "../../scripts/polymarket-observation-receipt.mjs";
+import { fetchObservation } from "../polymarket-observation.mjs";
 
 const SLUG = "eth-updown-demo";
 const YES_TOKEN = "yes-token";
