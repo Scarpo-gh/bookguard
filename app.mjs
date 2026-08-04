@@ -1,5 +1,6 @@
 import { lookupAnchor, receiptHashFromSearch } from "./receipt-anchor.mjs";
 import { canonicalJson } from "./canonical-json.mjs";
+import { keccak256Utf8 } from "./keccak256.mjs";
 import { fetchObservation } from "./polymarket-observation.mjs";
 
 const form = document.querySelector("#lookup-form");
@@ -82,6 +83,7 @@ const marketQuestion = document.querySelector("#market-question");
 const marketObserved = document.querySelector("#market-observed");
 const marketBooks = document.querySelector("#market-books");
 const marketCanonical = document.querySelector("#market-canonical");
+const marketReceiptHash = document.querySelector("#market-receipt-hash");
 
 function setMarketMessage(text, isError = false) {
   marketPreviewMessage.textContent = text;
@@ -104,7 +106,9 @@ function renderMarketObservation(observation) {
   marketObserved.textContent = `Observed ${observation.observedAt} · ${observation.market.conditionId}`;
   marketBooks.replaceChildren();
   observation.books.forEach(addBookRow);
-  marketCanonical.textContent = canonicalJson(observation);
+  const canonicalReceipt = canonicalJson(observation);
+  marketCanonical.textContent = canonicalReceipt;
+  marketReceiptHash.textContent = keccak256Utf8(canonicalReceipt);
 }
 
 marketPreviewForm.addEventListener("submit", async (event) => {

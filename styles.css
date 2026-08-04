@@ -56,6 +56,8 @@ dt { color: var(--muted); font-size: 12px; }
 dd { overflow: hidden; margin: 6px 0 0; color: var(--ink); font: 400 12px/1.55 "DM Mono", monospace; overflow-wrap: anywhere; }
 .market-preview { margin-top: 26px; }
 .market-question { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.03em; }
+.receipt-hash { display: grid; gap: 6px; margin-top: 22px; padding: 13px 14px; border: 1px solid #445a39; border-radius: 5px; background: var(--quiet); color: var(--muted); font: 500 12px "DM Mono", monospace; }
+.receipt-hash code { overflow-wrap: anywhere; color: var(--accent); }
 details { margin-top: 22px; border-top: 1px solid var(--border); padding-top: 15px; }
 summary { cursor: pointer; color: var(--accent); font: 500 12px "DM Mono", monospace; }
 pre { max-height: 280px; overflow: auto; margin: 14px 0 0; padding: 14px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); color: var(--muted); font: 400 11px/1.6 "DM Mono", monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
