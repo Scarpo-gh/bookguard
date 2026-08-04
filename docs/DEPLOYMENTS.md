@@ -12,8 +12,9 @@
 | Gas used | `246,000` |
 | Value sent | `0 ETH` |
 | Status | Success |
+| Source verification | [BaseScan Exact Match](https://basescan.org/address/0x9a8fCf271F97075486673eA3eD48c4fda33374Ce#code) |
 
-The contract was deployed directly by the project wallet through a wallet-controlled Remix Browser Extension session. The executable runtime prefix matches the local `ReceiptAnchorV1` build; the final compiler metadata bytes differ because Remix and Foundry compile in different source contexts.
+The contract was deployed directly by the project wallet through a wallet-controlled Remix Browser Extension session. BaseScan independently recompiles the published source as an exact bytecode match using Solidity `0.8.30`, optimizer enabled with `200` runs, and the compiler-default EVM target.
 
 ## Base Sepolia — `ReceiptAnchorV1`
 
@@ -32,4 +33,4 @@ The contract was deployed through a wallet-controlled Remix Browser Extension se
 
 ## Verification status
 
-The deployed runtime contains an executable prefix matching the local `ReceiptAnchorV1` build. The final compiler metadata bytes differ because Remix and Foundry compile in different source contexts. Public explorer source verification remains a separate follow-up step.
+The Base Mainnet deployment is source-verified on BaseScan as an exact bytecode match. Base Sepolia source verification is optional testnet documentation and is not required for the Base Mainnet product deployment.
