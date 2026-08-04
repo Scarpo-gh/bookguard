@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Read-only Base Mainnet lookup for BookGuard ReceiptAnchorV1 evidence."
+    />
+    <title>BookGuard — Receipt Anchor Lookup</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="https://github.com/Scarpo-gh/bookguard" target="_blank" rel="noreferrer">
+          <span class="brand-mark" aria-hidden="true">BG</span>
+          <span>BookGuard</span>
+        </a>
+        <div class="network-status"><span class="status-dot" aria-hidden="true"></span>Base Mainnet · 8453</div>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">RECEIPT ANCHOR / READ-ONLY</p>
+        <h1 id="page-title">Inspect anchored evidence.</h1>
+        <p class="lede">
+          Look up a canonical receipt hash against the verified <code>ReceiptAnchorV1</code> contract.
+          This page only reads Base state; it never connects a wallet or submits a transaction.
+        </p>
+      </section>
+
+      <section class="lookup-panel" aria-labelledby="lookup-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">QUERY</p>
+            <h2 id="lookup-title">Receipt hash</h2>
+          </div>
+          <a class="text-link" href="https://basescan.org/address/0x9a8fCf271F97075486673eA3eD48c4fda33374Ce#code" target="_blank" rel="noreferrer">Verified source ↗</a>
+        </div>
+
+        <form id="lookup-form" novalidate>
+          <label for="receipt-hash">bytes32 / 0x + 64 hexadecimal characters</label>
+          <div class="query-row">
+            <input id="receipt-hash" name="receiptHash" autocomplete="off" spellcheck="false" placeholder="0x…" aria-describedby="lookup-message" />
+            <button type="submit">Check Base</button>
+          </div>
+          <p id="lookup-message" class="message" aria-live="polite">No wallet connection required.</p>
+        </form>
+      </section>
+
+      <section class="result-panel" aria-labelledby="result-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">RESULT</p>
+            <h2 id="result-title">Anchor state</h2>
+          </div>
+          <span id="result-badge" class="badge neutral">Awaiting query</span>
+        </div>
+
+        <div id="empty-result" class="empty-state">
+          Enter a receipt hash to read its anchor record from Base Mainnet.
+        </div>
+
+        <dl id="anchor-result" class="anchor-data" hidden>
+          <div><dt>Receipt hash</dt><dd id="result-receipt"></dd></div>
+          <div><dt>Policy hash</dt><dd id="result-policy"></dd></div>
+          <div><dt>Market hash</dt><dd id="result-market"></dd></div>
+          <div><dt>Observed at</dt><dd id="result-observed"></dd></div>
+          <div><dt>Anchored by</dt><dd id="result-anchorer"></dd></div>
+        </dl>
+      </section>
+
+      <aside class="boundary-note">
+        <strong>Scope.</strong> An anchor proves that a defined receipt was recorded. It does not validate upstream market data, outcomes, trading decisions, or profitability.
+      </aside>
+
+      <footer>
+        <span>Contract</span>
+        <a href="https://basescan.org/address/0x9a8fCf271F97075486673eA3eD48c4fda33374Ce" target="_blank" rel="noreferrer">0x9a8f…74Ce ↗</a>
+        <span>·</span>
+        <a href="https://github.com/Scarpo-gh/bookguard" target="_blank" rel="noreferrer">Open source ↗</a>
+      </footer>
+    </main>
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>
