@@ -71,6 +71,33 @@
         </dl>
       </section>
 
+      <section class="lookup-panel" aria-labelledby="market-preview-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">LIVE SNAPSHOT</p>
+            <h2 id="market-preview-title">Build a market receipt</h2>
+          </div>
+          <span class="badge neutral">No wallet</span>
+        </div>
+        <form id="market-preview-form" novalidate>
+          <label for="market-slug">Polymarket market slug</label>
+          <div class="query-row">
+            <input id="market-slug" name="marketSlug" autocomplete="off" spellcheck="false" placeholder="eth-updown-5m-1785937800" aria-describedby="market-preview-message" />
+            <button type="submit">Fetch snapshot</button>
+          </div>
+          <p id="market-preview-message" class="message" aria-live="polite">Reads public Gamma and CLOB endpoints only.</p>
+        </form>
+        <div id="market-preview-result" class="market-preview" hidden>
+          <p id="market-question" class="market-question"></p>
+          <p id="market-observed" class="message"></p>
+          <dl id="market-books" class="anchor-data"></dl>
+          <details>
+            <summary>Canonical receipt JSON</summary>
+            <pre id="market-canonical"></pre>
+          </details>
+        </div>
+      </section>
+
       <aside class="boundary-note">
         <strong>Scope.</strong> An anchor proves that a defined receipt was recorded. It does not validate upstream market data, outcomes, trading decisions, or profitability.
       </aside>

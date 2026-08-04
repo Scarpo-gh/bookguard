@@ -1,4 +1,6 @@
 import { lookupAnchor, receiptHashFromSearch } from "./receipt-anchor.mjs";
+import { canonicalJson } from "./canonical-json.mjs";
+import { fetchObservation } from "./polymarket-observation.mjs";
 
 const form = document.querySelector("#lookup-form");
 const input = document.querySelector("#receipt-hash");
@@ -70,3 +72,52 @@ if (receiptHash) {
   input.value = receiptHash;
   form.requestSubmit();
 }
+
+const marketPreviewForm = document.querySelector("#market-preview-form");
+const marketSlugInput = document.querySelector("#market-slug");
+const marketPreviewButton = marketPreviewForm.querySelector("button");
+const marketPreviewMessage = document.querySelector("#market-preview-message");
+const marketPreviewResult = document.querySelector("#market-preview-result");
+const marketQuestion = document.querySelector("#market-question");
+const marketObserved = document.querySelector("#market-observed");
+const marketBooks = document.querySelector("#market-books");
+const marketCanonical = document.querySelector("#market-canonical");
+
+function setMarketMessage(text, isError = false) {
+  marketPreviewMessage.textContent = text;
+  marketPreviewMessage.classList.toggle("error", isError);
+}
+
+function addBookRow(book) {
+  const row = document.createElement("div");
+  const term = document.createElement("dt");
+  const definition = document.createElement("dd");
+  term.textContent = `${book.outcome} top of book`;
+  definition.textContent = `Bid ${book.bestBid.price} × ${book.bestBid.size} · Ask ${book.bestAsk.price} × ${book.bestAsk.size}`;
+  row.append(term, definition);
+  marketBooks.append(row);
+}
+
+function renderMarketObservation(observation) {
+  marketPreviewResult.hidden = false;
+  marketQuestion.textContent = observation.market.question;
+  marketObserved.textContent = `Observed ${observation.observedAt} · ${observation.market.conditionId}`;
+  marketBooks.replaceChildren();
+  observation.books.forEach(addBookRow);
+  marketCanonical.textContent = canonicalJson(observation);
+}
+
+marketPreviewForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  marketPreviewButton.disabled = true;
+  setMarketMessage("Fetching public Gamma metadata and CLOB books.");
+
+  try {
+    renderMarketObservation(await fetchObservation(marketSlugInput.value.trim()));
+    setMarketMessage("Canonical receipt preview generated locally. It is not anchored.");
+  } catch (error) {
+    setMarketMessage(error.message, true);
+  } finally {
+    marketPreviewButton.disabled = false;
+  }
+});
