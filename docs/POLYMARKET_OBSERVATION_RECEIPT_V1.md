@@ -66,6 +66,8 @@ node scripts/polymarket-observation-receipt.mjs eth-updown-5m-1785937800
 
 The generator makes three unauthenticated GET requests: one Gamma market lookup and one CLOB order-book lookup per outcome. It rejects missing, inactive, closed, inconsistent, or empty-book markets. It does not write files, connect a wallet, sign, or send a transaction.
 
+The web preview computes the Ethereum Keccak-256 receipt hash locally from its exact canonical JSON string. The implementation is dependency-free and is tested against Foundry `cast keccak` vectors.
+
 ## Anchor procedure
 
 Before a mainnet write:
