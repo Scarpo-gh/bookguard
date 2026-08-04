@@ -68,6 +68,8 @@ The generator makes three unauthenticated GET requests: one Gamma market lookup 
 
 The web preview computes the Ethereum Keccak-256 receipt hash locally from its exact canonical JSON string. The implementation is dependency-free and is tested against Foundry `cast keccak` vectors.
 
+After a fresh preview, **Run Base preflight** derives the documented policy and market hashes, reads `getAnchor(receiptHash)`, then executes a read-only `eth_call` simulation and `eth_estimateGas` for `anchorReceipt`. It cannot access a wallet, sign, or broadcast a transaction.
+
 ## Anchor procedure
 
 Before a mainnet write:

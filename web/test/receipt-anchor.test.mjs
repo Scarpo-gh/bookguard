@@ -3,9 +3,11 @@ import assert from "node:assert/strict";
 
 import {
   decodeAnchorResult,
+  encodeAnchorReceiptCall,
   encodeGetAnchorCall,
   lookupAnchor,
   normalizeReceiptHash,
+  preflightAnchor,
   receiptHashFromSearch,
 } from "../receipt-anchor.mjs";
 
@@ -36,6 +38,13 @@ test("reads a valid receipt hash from a query string", () => {
 
 test("encodes getAnchor calldata", () => {
   assert.equal(encodeGetAnchorCall(RECEIPT_HASH), `0x7feb51d9${RECEIPT_HASH.slice(2)}`);
+});
+
+test("encodes anchorReceipt calldata", () => {
+  assert.equal(
+    encodeAnchorReceiptCall(RECEIPT_HASH, POLICY_HASH, MARKET_HASH, 1717517312),
+    `0x9d09f2eb${RECEIPT_HASH.slice(2)}${POLICY_HASH.slice(2)}${MARKET_HASH.slice(2)}${word("665f3c00")}`,
+  );
 });
 
 test("decodes an anchored receipt response", () => {
@@ -86,4 +95,30 @@ test("looks up a receipt with a Base eth_call", async () => {
     data: `0x7feb51d9${RECEIPT_HASH.slice(2)}`,
   });
   assert.equal(anchor.anchored, false);
+});
+
+test("preflights an unanchored receipt with simulation and gas estimation", async () => {
+  const missing = `0x${"0".repeat(64 * 5)}`;
+  const calls = [];
+  const fetcher = async (url, options) => {
+    const request = JSON.parse(options.body);
+    calls.push({ url, request });
+    if (request.method === "eth_estimateGas") {
+      return { ok: true, json: async () => ({ jsonrpc: "2.0", id: 1, result: "0x1c3dd" }) };
+    }
+    return { ok: true, json: async () => ({ jsonrpc: "2.0", id: 1, result: request.params[0].data.startsWith("0x7feb51d9") ? missing : "0x" }) };
+  };
+
+  const result = await preflightAnchor({
+    receiptHash: RECEIPT_HASH,
+    policyHash: POLICY_HASH,
+    marketHash: MARKET_HASH,
+    observedAt: 1717517312,
+  }, fetcher);
+
+  assert.equal(result.anchor.anchored, false);
+  assert.equal(result.simulation, "passed");
+  assert.equal(result.estimatedGas, 115677n);
+  assert.equal(calls.filter((call) => call.request.method === "eth_call").length, 2);
+  assert.equal(calls.filter((call) => call.request.method === "eth_estimateGas").length, 1);
 });
