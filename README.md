@@ -24,6 +24,8 @@ Verified Base Mainnet and Base Sepolia deployments: [`docs/DEPLOYMENTS.md`](docs
 
 First canonical Base Mainnet receipt anchor: [`docs/RECEIPTS.md`](docs/RECEIPTS.md).
 
+Polymarket external-observation schema and unanchored Base dry run: [`docs/POLYMARKET_OBSERVATION_RECEIPT_V1.md`](docs/POLYMARKET_OBSERVATION_RECEIPT_V1.md) and [`docs/EXTERNAL_OBSERVATION_DRY_RUN_2026-08-04.md`](docs/EXTERNAL_OBSERVATION_DRY_RUN_2026-08-04.md).
+
 ## Read-only web lookup
 
 `web/` contains a dependency-free browser interface for reading `getAnchor(bytes32)` from the verified Base Mainnet contract. It never requests a wallet connection and it never sends a transaction.
