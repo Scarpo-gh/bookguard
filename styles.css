@@ -38,8 +38,10 @@ code { font: 500 0.9em "DM Mono", monospace; color: var(--ink); }
 .text-link { color: var(--accent); font-size: 13px; text-decoration: none; }
 label { display: block; margin-bottom: 10px; color: var(--muted); }
 .query-row { display: flex; gap: 10px; }
-input { min-width: 0; flex: 1; height: 52px; border: 1px solid var(--border); border-radius: 5px; outline: none; padding: 0 15px; background: var(--surface); color: var(--ink); font: 400 14px "DM Mono", monospace; }
-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #a6f85d18; }
+input, textarea { min-width: 0; flex: 1; border: 1px solid var(--border); border-radius: 5px; outline: none; background: var(--surface); color: var(--ink); font: 400 14px "DM Mono", monospace; }
+input { height: 52px; padding: 0 15px; }
+textarea { display: block; width: 100%; min-height: 152px; resize: vertical; padding: 14px; line-height: 1.55; }
+input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #a6f85d18; }
 button { min-width: 136px; border: 0; border-radius: 5px; padding: 0 18px; background: var(--accent); color: var(--accent-ink); cursor: pointer; font: 700 13px Manrope, sans-serif; }
 button:hover { filter: brightness(1.08); }
 button:disabled { cursor: wait; opacity: 0.65; }

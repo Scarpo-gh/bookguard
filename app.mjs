@@ -3,6 +3,7 @@ import { canonicalJson } from "./canonical-json.mjs";
 import { keccak256Utf8 } from "./keccak256.mjs";
 import { fetchObservation } from "./polymarket-observation.mjs";
 import { findRegisteredReceipt, matchesAnchor } from "./receipt-registry.mjs";
+import { analyzeReceiptText } from "./receipt-verifier.mjs";
 
 const form = document.querySelector("#lookup-form");
 const input = document.querySelector("#receipt-hash");
@@ -202,5 +203,46 @@ preflightButton.addEventListener("click", async () => {
     preflightMessage.classList.add("error");
   } finally {
     preflightButton.disabled = false;
+  }
+});
+
+const receiptVerifierForm = document.querySelector("#receipt-verifier-form");
+const receiptJsonInput = document.querySelector("#receipt-json");
+const receiptVerifierButton = receiptVerifierForm.querySelector("button");
+const receiptVerifierMessage = document.querySelector("#receipt-verifier-message");
+const receiptVerifierResult = document.querySelector("#receipt-verifier-result");
+const verifiedReceiptHash = document.querySelector("#verified-receipt-hash");
+const verifiedCanonicalStatus = document.querySelector("#verified-canonical-status");
+const expectedCanonical = document.querySelector("#expected-canonical");
+const expectedCanonicalJson = document.querySelector("#expected-canonical-json");
+
+function setVerifierMessage(text, isError = false) {
+  receiptVerifierMessage.textContent = text;
+  receiptVerifierMessage.classList.toggle("error", isError);
+}
+
+receiptVerifierForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  receiptVerifierButton.disabled = true;
+
+  try {
+    const analysis = analyzeReceiptText(receiptJsonInput.value);
+    receiptVerifierResult.hidden = false;
+    verifiedReceiptHash.textContent = analysis.receiptHash;
+    verifiedCanonicalStatus.textContent = analysis.canonical ? "Exact canonical JSON" : "Not canonical — bytes differ";
+    expectedCanonical.hidden = analysis.canonical;
+    expectedCanonicalJson.textContent = analysis.canonicalText;
+    input.value = analysis.receiptHash;
+    setVerifierMessage("Hashing the exact submitted bytes locally and reading Base Mainnet.");
+    renderAnchor(await lookupAnchor(analysis.receiptHash));
+    setVerifierMessage(
+      analysis.canonical
+        ? "Canonical JSON confirmed. Base was queried with the hash of these exact bytes."
+        : "This JSON is valid but not canonical. The Base query used its exact submitted bytes; do not treat a match as a canonical BookGuard receipt.",
+    );
+  } catch (error) {
+    setVerifierMessage(error.message, true);
+  } finally {
+    receiptVerifierButton.disabled = false;
   }
 });
