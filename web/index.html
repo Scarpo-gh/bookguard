@@ -127,6 +127,34 @@
         </div>
       </section>
 
+      <section class="lookup-panel" aria-labelledby="receipt-verifier-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">VERIFY FILE</p>
+            <h2 id="receipt-verifier-title">Verify canonical receipt JSON</h2>
+          </div>
+          <span class="badge neutral">Local hash</span>
+        </div>
+        <form id="receipt-verifier-form" novalidate>
+          <label for="receipt-json">Paste the exact canonical JSON bytes</label>
+          <textarea id="receipt-json" name="receiptJson" spellcheck="false" placeholder='{"observedAt":"...","policy":"..."}' aria-describedby="receipt-verifier-message"></textarea>
+          <div class="preflight-actions">
+            <button type="submit">Verify exact bytes</button>
+            <p id="receipt-verifier-message" class="message" aria-live="polite">Your JSON stays in this browser. No wallet connection required.</p>
+          </div>
+        </form>
+        <div id="receipt-verifier-result" class="market-preview" hidden>
+          <dl class="anchor-data">
+            <div><dt>Exact input hash</dt><dd id="verified-receipt-hash"></dd></div>
+            <div><dt>Canonical format</dt><dd id="verified-canonical-status"></dd></div>
+          </dl>
+          <details id="expected-canonical" hidden>
+            <summary>Expected canonical JSON</summary>
+            <pre id="expected-canonical-json"></pre>
+          </details>
+        </div>
+      </section>
+
       <aside class="boundary-note">
         <strong>Scope.</strong> An anchor proves that a defined receipt was recorded. It does not validate upstream market data, outcomes, trading decisions, or profitability.
       </aside>
