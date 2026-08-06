@@ -54,6 +54,11 @@ button:disabled { cursor: wait; opacity: 0.65; }
 .anchor-data div { min-width: 0; border-bottom: 1px solid var(--border); padding: 15px 0; }
 dt { color: var(--muted); font-size: 12px; }
 dd { overflow: hidden; margin: 6px 0 0; color: var(--ink); font: 400 12px/1.55 "DM Mono", monospace; overflow-wrap: anywhere; }
+.registered-evidence { margin-top: 26px; padding: 20px; border: 1px solid #445a39; border-radius: 6px; background: var(--quiet); }
+.registered-evidence h3 { margin: 0 0 7px; font-size: 18px; letter-spacing: -0.04em; }
+.compact-data { margin-top: 12px; }
+.evidence-policy { margin: 16px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.evidence-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 17px; }
 .market-preview { margin-top: 26px; }
 .market-question { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.03em; }
 .receipt-hash { display: grid; gap: 6px; margin-top: 22px; padding: 13px 14px; border: 1px solid #445a39; border-radius: 5px; background: var(--quiet); color: var(--muted); font: 500 12px "DM Mono", monospace; }
