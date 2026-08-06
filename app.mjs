@@ -2,6 +2,7 @@ import { lookupAnchor, preflightAnchor, receiptHashFromSearch } from "./receipt-
 import { canonicalJson } from "./canonical-json.mjs";
 import { keccak256Utf8 } from "./keccak256.mjs";
 import { fetchObservation } from "./polymarket-observation.mjs";
+import { findRegisteredReceipt, matchesAnchor } from "./receipt-registry.mjs";
 
 const form = document.querySelector("#lookup-form");
 const input = document.querySelector("#receipt-hash");
@@ -10,6 +11,7 @@ const message = document.querySelector("#lookup-message");
 const badge = document.querySelector("#result-badge");
 const emptyResult = document.querySelector("#empty-result");
 const anchorResult = document.querySelector("#anchor-result");
+const registeredEvidence = document.querySelector("#registered-evidence");
 
 const fields = {
   receiptHash: document.querySelector("#result-receipt"),
@@ -17,6 +19,16 @@ const fields = {
   marketHash: document.querySelector("#result-market"),
   observedAt: document.querySelector("#result-observed"),
   anchorer: document.querySelector("#result-anchorer"),
+};
+
+const evidenceFields = {
+  question: document.querySelector("#evidence-question"),
+  kind: document.querySelector("#evidence-kind"),
+  observed: document.querySelector("#evidence-observed"),
+  condition: document.querySelector("#evidence-condition"),
+  policy: document.querySelector("#evidence-policy"),
+  source: document.querySelector("#evidence-source"),
+  transaction: document.querySelector("#evidence-transaction"),
 };
 
 function setBadge(label, state = "neutral") {
@@ -34,6 +46,23 @@ function formatObservedAt(timestamp) {
   return `${new Date(timestamp * 1000).toISOString()} (${timestamp})`;
 }
 
+function renderRegisteredEvidence(anchor) {
+  const record = findRegisteredReceipt(anchor.receiptHash);
+  if (!matchesAnchor(record, anchor)) {
+    registeredEvidence.hidden = true;
+    return;
+  }
+
+  registeredEvidence.hidden = false;
+  evidenceFields.question.textContent = record.marketQuestion;
+  evidenceFields.kind.textContent = record.kind;
+  evidenceFields.observed.textContent = record.observedAt;
+  evidenceFields.condition.textContent = record.marketConditionId;
+  evidenceFields.policy.textContent = record.policyDescription;
+  evidenceFields.source.href = record.receiptSourceUrl;
+  evidenceFields.transaction.href = record.anchorTransactionUrl;
+}
+
 function renderAnchor(anchor) {
   emptyResult.hidden = true;
   anchorResult.hidden = false;
@@ -42,6 +71,7 @@ function renderAnchor(anchor) {
   fields.marketHash.textContent = anchor.marketHash;
   fields.observedAt.textContent = formatObservedAt(anchor.observedAt);
   fields.anchorer.textContent = anchor.anchorer;
+  renderRegisteredEvidence(anchor);
 
   if (anchor.anchored) {
     setBadge("Anchored", "found");
