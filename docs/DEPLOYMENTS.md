@@ -20,6 +20,10 @@ The contract was deployed directly by the project wallet through a wallet-contro
 
 The first canonical receipt was anchored on Base Mainnet in [`0xbb77e331e81b915c20a23205deecafc6d818a92613ab7dc29493f289254ee797`](https://basescan.org/tx/0xbb77e331e81b915c20a23205deecafc6d818a92613ab7dc29493f289254ee797), block `49530988`, with a successful `ReceiptAnchored` event. See [`RECEIPTS.md`](RECEIPTS.md) for the source receipt, canonical hashing inputs, and independent verification command.
 
+### First external-market receipt
+
+The first public Polymarket top-of-book observation receipt was anchored on Base Mainnet in [`0x5d7881dfc234897832843685dbc8b968e6a8edc037475134f41c999155545509`](https://basescan.org/tx/0x5d7881dfc234897832843685dbc8b968e6a8edc037475134f41c999155545509), block `49619739`, with a successful `ReceiptAnchored` event. See [`RECEIPTS.md`](RECEIPTS.md) and [`POLYMARKET_RECEIPT_READY_2026-08-06.md`](POLYMARKET_RECEIPT_READY_2026-08-06.md) for the canonical source, preflight, and post-mining readback.
+
 ## Base Sepolia — `ReceiptAnchorV1`
 
 | Field | Value |

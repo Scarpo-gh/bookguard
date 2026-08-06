@@ -1,8 +1,8 @@
-# Polymarket Receipt Ready for Anchor — 2026-08-06
+# Polymarket Receipt Anchor — 2026-08-06
 
 ## Status
 
-**Unanchored and prepared for a wallet-controlled Base Mainnet transaction.** The checks below used read-only JSON-RPC calls. No signature, broadcast, or mainnet state change occurred.
+**Anchored on Base Mainnet.** The wallet-controlled transaction completed successfully after the read-only checks below.
 
 ## Canonical evidence
 
@@ -24,10 +24,23 @@ The observed market was **Will Gavin Newsom win the 2028 Democratic presidential
 - Target contract: [`ReceiptAnchorV1` on Base Mainnet](https://basescan.org/address/0x9a8fCf271F97075486673eA3eD48c4fda33374Ce#code).
 - Transaction value must remain `0 ETH`.
 
+## Anchor transaction
+
+| Field | Value |
+| --- | --- |
+| Transaction | [`0x5d7881dfc234897832843685dbc8b968e6a8edc037475134f41c999155545509`](https://basescan.org/tx/0x5d7881dfc234897832843685dbc8b968e6a8edc037475134f41c999155545509) |
+| Block | `49619739` (`2026-08-06T15:07:05Z`) |
+| Status | Success; one `ReceiptAnchored` event |
+| Gas used | `114639` |
+| Value | `0 ETH` |
+| Anchored by | `0xD725160341c1c65Cf1369d271c897aFC5fcc3926` |
+
+`getAnchor(receiptHash)` was reread after mining and returned the exact receipt hash, policy hash, market hash, observation time, and anchorer listed above.
+
 ## Scope
 
 This evidence records the supplied canonical JSON bytes and the listed public-market observation. It does not prove the correctness of Polymarket's source data, market resolution, execution quality, outcome, or profitability.
 
-## Wallet-controlled write
+## Wallet-controlled write record
 
-Use Remix **Browser Extension** with the existing deployed contract. Review the target, Base network, `0 ETH` value, function arguments, and wallet fee before confirming. Do not deploy another contract.
+The existing deployed contract was used through Remix **Browser Extension** on Base with `0 ETH` value. No new contract was deployed.
