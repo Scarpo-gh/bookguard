@@ -16,6 +16,10 @@ Base-native, read-only orderbook quality and receipt-provenance infrastructure.
 
 `EvidenceRootAnchor` commits one Merkle root and canonical batch metadata hash for many off-chain evidence receipts. Inclusion proofs remain local and dependency-free; the contract stores no receipt leaves, funds, order state, or trading logic. See [`docs/EVIDENCE_ROOT_ANCHOR.md`](docs/EVIDENCE_ROOT_ANCHOR.md).
 
+## Publisher key discovery — not deployed
+
+`PublisherKeyRegistry` publishes public signing-key discovery records with explicit rotation and revocation state. It stores a public-key hash and URI only: never private keys, signatures, funds, or trading state. See [`docs/PUBLISHER_KEY_REGISTRY.md`](docs/PUBLISHER_KEY_REGISTRY.md).
+
 ## Development
 
 ```bash
