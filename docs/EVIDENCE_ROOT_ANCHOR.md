@@ -1,8 +1,8 @@
 # EvidenceRootAnchor
 
-`EvidenceRootAnchor` is BookGuard's planned third Base Mainnet contract. It anchors one immutable commitment to a batch of off-chain evidence receipts.
+`EvidenceRootAnchor` is BookGuard's third Base Mainnet contract. It anchors one immutable commitment to a batch of off-chain evidence receipts.
 
-> **Deployment status:** Implemented and locally tested; **not deployed**. No address, transaction, or wallet approval exists yet.
+> **Deployment status:** Deployed on Base Mainnet at [`0x51CF0354Ad780775a70e09Ef0D84b2Eb9A3fdd18`](https://basescan.org/address/0x51CF0354Ad780775a70e09Ef0D84b2Eb9A3fdd18) in [transaction `0x2bc…63a7e`](https://basescan.org/tx/0x2bc706a45b06cf12352e6377a067561c75dc19484178932e0a20a00842663a7e). Source verification is pending.
 
 ## Why it is separate from ReceiptAnchorV1
 

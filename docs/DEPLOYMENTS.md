@@ -32,6 +32,22 @@ The contract was deployed directly by the project wallet through a wallet-contro
 
 The deployment receipt was independently read from the Base Mainnet RPC: chain ID `8453`, successful receipt status, expected deployer `0xd725160341c1c65cf1369d271c897afc5fcc3926`, and the expected contract address. The deployed runtime bytecode matches the locally compiled `PolicyVersionRegistry` runtime bytecode after Solidity metadata is removed; both have `956` bytes of executable runtime code. See [`POLICY_VERSION_REGISTRY.md`](POLICY_VERSION_REGISTRY.md) and [`POLICY_VERSION_REGISTRY_DEPLOYMENT_PREVIEW.md`](POLICY_VERSION_REGISTRY_DEPLOYMENT_PREVIEW.md).
 
+## Base Mainnet — `EvidenceRootAnchor`
+
+| Field | Value |
+| --- | --- |
+| Network | Base Mainnet |
+| Chain ID | `8453` |
+| Contract | [`0x51CF0354Ad780775a70e09Ef0D84b2Eb9A3fdd18`](https://basescan.org/address/0x51CF0354Ad780775a70e09Ef0D84b2Eb9A3fdd18) |
+| Deployment transaction | [`0x2bc706a45b06cf12352e6377a067561c75dc19484178932e0a20a00842663a7e`](https://basescan.org/tx/0x2bc706a45b06cf12352e6377a067561c75dc19484178932e0a20a00842663a7e) |
+| Block | `50049816` |
+| Gas used | `286,693` |
+| Value sent | `0 ETH` |
+| Status | Success |
+| Source verification | Pending BaseScan verification |
+
+The deployment receipt was independently read from the Base Mainnet RPC: chain ID `8453`, successful receipt status, expected deployer `0xd725160341c1c65cf1369d271c897afc5fcc3926`, and the expected contract address. The deployed runtime bytecode matches the locally compiled `EvidenceRootAnchor` runtime bytecode after Solidity metadata is removed; both have `1,026` bytes of executable runtime code. See [`EVIDENCE_ROOT_ANCHOR.md`](EVIDENCE_ROOT_ANCHOR.md) and [`EVIDENCE_ROOT_ANCHOR_DEPLOYMENT_PREVIEW.md`](EVIDENCE_ROOT_ANCHOR_DEPLOYMENT_PREVIEW.md).
+
 ### First anchored receipt
 
 The first canonical receipt was anchored on Base Mainnet in [`0xbb77e331e81b915c20a23205deecafc6d818a92613ab7dc29493f289254ee797`](https://basescan.org/tx/0xbb77e331e81b915c20a23205deecafc6d818a92613ab7dc29493f289254ee797), block `49530988`, with a successful `ReceiptAnchored` event. See [`RECEIPTS.md`](RECEIPTS.md) for the source receipt, canonical hashing inputs, and independent verification command.
