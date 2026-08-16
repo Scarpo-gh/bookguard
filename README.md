@@ -8,9 +8,9 @@ Base-native, read-only orderbook quality and receipt-provenance infrastructure.
 
 `ReceiptAnchorV1` binds a canonical off-chain receipt hash, policy hash, market hash and observation time to a Base transaction. It does not claim that upstream market data is true; it proves that a defined receipt was anchored.
 
-## Next module — not deployed
+## Policy provenance registry
 
-`PolicyVersionRegistry` records immutable, publisher-scoped policy version hashes so a receipt consumer can independently identify the policy content and publisher that produced it. It has no funds, trading, order-routing, token, upgrade, or recovery surface. See [`docs/POLICY_VERSION_REGISTRY.md`](docs/POLICY_VERSION_REGISTRY.md).
+[`PolicyVersionRegistry`](https://basescan.org/address/0x3Fd0504715E539b50bB539642465393dE9E617C3) records immutable, publisher-scoped policy version hashes so a receipt consumer can independently identify the policy content and publisher that produced it. It has no funds, trading, order-routing, token, upgrade, or recovery surface. See [`docs/POLICY_VERSION_REGISTRY.md`](docs/POLICY_VERSION_REGISTRY.md) and [`docs/DEPLOYMENTS.md`](docs/DEPLOYMENTS.md).
 
 ## Development
 
