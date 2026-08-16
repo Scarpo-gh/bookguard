@@ -20,6 +20,10 @@ Base-native, read-only orderbook quality and receipt-provenance infrastructure.
 
 `PublisherKeyRegistry` publishes public signing-key discovery records with explicit rotation and revocation state. It stores a public-key hash and URI only: never private keys, signatures, funds, or trading state. See [`docs/PUBLISHER_KEY_REGISTRY.md`](docs/PUBLISHER_KEY_REGISTRY.md).
 
+## Research request commitments — not deployed
+
+`ResearchRequestRegistry` commits a research request and scope hash, with requester-only withdrawal and fulfillment acceptance. It is deliberately not an escrow, marketplace, payment, or dispute contract. See [`docs/RESEARCH_REQUEST_REGISTRY.md`](docs/RESEARCH_REQUEST_REGISTRY.md).
+
 ## Development
 
 ```bash
