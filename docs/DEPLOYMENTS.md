@@ -44,7 +44,7 @@ The deployment receipt was independently read from the Base Mainnet RPC: chain I
 | Gas used | `286,693` |
 | Value sent | `0 ETH` |
 | Status | Success |
-| Source verification | Pending BaseScan verification |
+| Source verification | [BaseScan verified source](https://basescan.org/address/0x51CF0354Ad780775a70e09Ef0D84b2Eb9A3fdd18#code) |
 
 The deployment receipt was independently read from the Base Mainnet RPC: chain ID `8453`, successful receipt status, expected deployer `0xd725160341c1c65cf1369d271c897afc5fcc3926`, and the expected contract address. The deployed runtime bytecode matches the locally compiled `EvidenceRootAnchor` runtime bytecode after Solidity metadata is removed; both have `1,026` bytes of executable runtime code. See [`EVIDENCE_ROOT_ANCHOR.md`](EVIDENCE_ROOT_ANCHOR.md) and [`EVIDENCE_ROOT_ANCHOR_DEPLOYMENT_PREVIEW.md`](EVIDENCE_ROOT_ANCHOR_DEPLOYMENT_PREVIEW.md).
 
