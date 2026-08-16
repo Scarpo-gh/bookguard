@@ -64,6 +64,22 @@ The deployment receipt was independently read from the Base Mainnet RPC: chain I
 
 The deployment receipt was independently read from the Base Mainnet RPC: chain ID `8453`, successful receipt status, expected deployer `0xd725160341c1c65cf1369d271c897afc5fcc3926`, and the expected contract address. The deployed runtime bytecode matches the locally compiled `PublisherKeyRegistry` runtime bytecode after Solidity metadata is removed; both have `2,533` bytes of executable runtime code. See [`PUBLISHER_KEY_REGISTRY.md`](PUBLISHER_KEY_REGISTRY.md) and [`PUBLISHER_KEY_REGISTRY_DEPLOYMENT_PREVIEW.md`](PUBLISHER_KEY_REGISTRY_DEPLOYMENT_PREVIEW.md).
 
+## Base Mainnet — `ResearchRequestRegistry`
+
+| Field | Value |
+| --- | --- |
+| Network | Base Mainnet |
+| Chain ID | `8453` |
+| Contract | [`0x5cC935eA1160619fE9B2805FCC6d32a6670688E6`](https://basescan.org/address/0x5cC935eA1160619fE9B2805FCC6d32a6670688E6) |
+| Deployment transaction | [`0x84d4ec24dfd5ebc3357420ff4ab362edfc446886dcb37956e4ae6de6b25d6ac2`](https://basescan.org/tx/0x84d4ec24dfd5ebc3357420ff4ab362edfc446886dcb37956e4ae6de6b25d6ac2) |
+| Block | `50051284` |
+| Gas used | `401,828` |
+| Value sent | `0 ETH` |
+| Status | Success |
+| Source verification | Pending BaseScan verification |
+
+The Base Mainnet receipt has status `1`, expected deployer and contract address. The deployed runtime matches the local `ResearchRequestRegistry` executable bytecode after Solidity metadata removal (`1,559` bytes). See [`RESEARCH_REQUEST_REGISTRY.md`](RESEARCH_REQUEST_REGISTRY.md).
+
 ### First anchored receipt
 
 The first canonical receipt was anchored on Base Mainnet in [`0xbb77e331e81b915c20a23205deecafc6d818a92613ab7dc29493f289254ee797`](https://basescan.org/tx/0xbb77e331e81b915c20a23205deecafc6d818a92613ab7dc29493f289254ee797), block `49530988`, with a successful `ReceiptAnchored` event. See [`RECEIPTS.md`](RECEIPTS.md) for the source receipt, canonical hashing inputs, and independent verification command.
