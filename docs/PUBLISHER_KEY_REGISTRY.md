@@ -2,7 +2,7 @@
 
 `PublisherKeyRegistry` is BookGuard's fourth Base Mainnet contract. It publishes a publisher-scoped discovery record for public receipt/policy/evidence signing keys, plus explicit rotation and revocation state.
 
-> **Deployment status:** Deployed on Base Mainnet at [`0xAAa1DF2Cd4CA470eB8960DA1070cB044f4179349`](https://basescan.org/address/0xAAa1DF2Cd4CA470eB8960DA1070cB044f4179349) in [transaction `0xd4d…7e908`](https://basescan.org/tx/0xd4d757fdf93ed4876c9ac885f4517298aecd6298d659bca2dcce83335957e908). Source verification is pending.
+> **Deployment status:** Deployed and source-verified on Base Mainnet at [`0xAAa1DF2Cd4CA470eB8960DA1070cB044f4179349`](https://basescan.org/address/0xAAa1DF2Cd4CA470eB8960DA1070cB044f4179349#code) in [transaction `0xd4d…7e908`](https://basescan.org/tx/0xd4d757fdf93ed4876c9ac885f4517298aecd6298d659bca2dcce83335957e908).
 
 ## Product boundary
 

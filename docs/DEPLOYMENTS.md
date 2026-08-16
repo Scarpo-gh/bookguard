@@ -60,7 +60,7 @@ The deployment receipt was independently read from the Base Mainnet RPC: chain I
 | Gas used | `612,303` |
 | Value sent | `0 ETH` |
 | Status | Success |
-| Source verification | Pending BaseScan verification |
+| Source verification | [BaseScan verified source](https://basescan.org/address/0xAAa1DF2Cd4CA470eB8960DA1070cB044f4179349#code) |
 
 The deployment receipt was independently read from the Base Mainnet RPC: chain ID `8453`, successful receipt status, expected deployer `0xd725160341c1c65cf1369d271c897afc5fcc3926`, and the expected contract address. The deployed runtime bytecode matches the locally compiled `PublisherKeyRegistry` runtime bytecode after Solidity metadata is removed; both have `2,533` bytes of executable runtime code. See [`PUBLISHER_KEY_REGISTRY.md`](PUBLISHER_KEY_REGISTRY.md) and [`PUBLISHER_KEY_REGISTRY_DEPLOYMENT_PREVIEW.md`](PUBLISHER_KEY_REGISTRY_DEPLOYMENT_PREVIEW.md).
 
