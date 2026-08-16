@@ -28,7 +28,7 @@ The contract was deployed directly by the project wallet through a wallet-contro
 | Gas used | `271,557` |
 | Value sent | `0 ETH` |
 | Status | Success |
-| Source verification | Pending BaseScan verification |
+| Source verification | [BaseScan verified source](https://basescan.org/address/0x3Fd0504715E539b50bB539642465393dE9E617C3#code) |
 
 The deployment receipt was independently read from the Base Mainnet RPC: chain ID `8453`, successful receipt status, expected deployer `0xd725160341c1c65cf1369d271c897afc5fcc3926`, and the expected contract address. The deployed runtime bytecode matches the locally compiled `PolicyVersionRegistry` runtime bytecode after Solidity metadata is removed; both have `956` bytes of executable runtime code. See [`POLICY_VERSION_REGISTRY.md`](POLICY_VERSION_REGISTRY.md) and [`POLICY_VERSION_REGISTRY_DEPLOYMENT_PREVIEW.md`](POLICY_VERSION_REGISTRY_DEPLOYMENT_PREVIEW.md).
 
