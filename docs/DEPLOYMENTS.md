@@ -76,7 +76,7 @@ The deployment receipt was independently read from the Base Mainnet RPC: chain I
 | Gas used | `401,828` |
 | Value sent | `0 ETH` |
 | Status | Success |
-| Source verification | Pending BaseScan verification |
+| Source verification | [BaseScan verified source](https://basescan.org/address/0x5cC935eA1160619fE9B2805FCC6d32a6670688E6#code) |
 
 The Base Mainnet receipt has status `1`, expected deployer and contract address. The deployed runtime matches the local `ResearchRequestRegistry` executable bytecode after Solidity metadata removal (`1,559` bytes). See [`RESEARCH_REQUEST_REGISTRY.md`](RESEARCH_REQUEST_REGISTRY.md).
 

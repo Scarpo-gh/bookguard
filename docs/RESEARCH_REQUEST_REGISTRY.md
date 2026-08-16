@@ -2,7 +2,7 @@
 
 `ResearchRequestRegistry` is BookGuard's planned fifth Base Mainnet contract. It creates a public, immutable commitment to a research request and scope without holding any payment or user funds.
 
-> **Deployment status:** Deployed on Base Mainnet at [`0x5cC935eA1160619fE9B2805FCC6d32a6670688E6`](https://basescan.org/address/0x5cC935eA1160619fE9B2805FCC6d32a6670688E6) in [transaction `0x84d…d6ac2`](https://basescan.org/tx/0x84d4ec24dfd5ebc3357420ff4ab362edfc446886dcb37956e4ae6de6b25d6ac2). Source verification is pending.
+> **Deployment status:** Deployed and source-verified on Base Mainnet at [`0x5cC935eA1160619fE9B2805FCC6d32a6670688E6`](https://basescan.org/address/0x5cC935eA1160619fE9B2805FCC6d32a6670688E6#code) in [transaction `0x84d…d6ac2`](https://basescan.org/tx/0x84d4ec24dfd5ebc3357420ff4ab362edfc446886dcb37956e4ae6de6b25d6ac2).
 
 ## Lifecycle and safety boundary
 
