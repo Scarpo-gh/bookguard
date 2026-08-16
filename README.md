@@ -12,6 +12,10 @@ Base-native, read-only orderbook quality and receipt-provenance infrastructure.
 
 [`PolicyVersionRegistry`](https://basescan.org/address/0x3Fd0504715E539b50bB539642465393dE9E617C3) records immutable, publisher-scoped policy version hashes so a receipt consumer can independently identify the policy content and publisher that produced it. It has no funds, trading, order-routing, token, upgrade, or recovery surface. See [`docs/POLICY_VERSION_REGISTRY.md`](docs/POLICY_VERSION_REGISTRY.md) and [`docs/DEPLOYMENTS.md`](docs/DEPLOYMENTS.md).
 
+## Evidence batch commitments — not deployed
+
+`EvidenceRootAnchor` commits one Merkle root and canonical batch metadata hash for many off-chain evidence receipts. Inclusion proofs remain local and dependency-free; the contract stores no receipt leaves, funds, order state, or trading logic. See [`docs/EVIDENCE_ROOT_ANCHOR.md`](docs/EVIDENCE_ROOT_ANCHOR.md).
+
 ## Development
 
 ```bash
